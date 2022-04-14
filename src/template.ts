@@ -189,19 +189,7 @@ export default ({
 
       exportButton.addEventListener("click", exportToCsv)
 
-      const exportToCsv = ({ target }) => {
-        let csvStr = ""
-        redirects.forEach(({ path, redirect }) => {
-          csvStr += [path, redirect].join(",")
-          csvStr += "\n"
-        })
-        const file = new Blob([csvStr], { type: "text/csv" })
-        const fileUrl = URL.createObjectURL(file)
-        exportButton.download = "export.csv"
-        exportButton.href = fileUrl
-        exportButton.click()
-        setTimeout(() => URL.revokeObjectURL(url), 0)
-      }
+   
 
       flash.hidden = true
       const parseErrors = () => {
