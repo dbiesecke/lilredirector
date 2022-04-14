@@ -10,12 +10,7 @@ export default ({
 ${redirects
       .filter((redirect: Redirect) => !!redirect.path)
       .map(
-        (redirect: Redirect) => `    {
-            "label": "filebot",
-            "titel": "application/vnd.google-apps.folder",
-            "icon": "msx-yellow:folder",
-            "action": "content:https://gd-foilo.buchclub-gd.workers.dev/filebot/"
-          }`,
+        (redirect: Redirect) => `{ "label": "${redirect.path.slice(1)}", "icon": "msx-yellow:folder","action": "content:${redirect.redirect}" }`,
       )
       .join(',').slice(0, -1)}
         ] }}
