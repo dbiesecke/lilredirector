@@ -1,6 +1,7 @@
 import auth from 'basic-auth'
 import CSV from 'papaparse'
 import template from './template'
+import t2 from './template-m3u'
 
 declare global {
   const REDIRECTS: KVNamespace
@@ -150,13 +151,18 @@ export default async (event: FetchEvent, options = {}) => {
       }
     }
   }
+  const redirects = await gatherRedirects()
 
   try {
     switch (url.pathname) {
       case `${baseUrl}`:
-        const redirects = await gatherRedirects()
         response = renderHtml(template({ baseUrl, redirects }))
         break
+      case `${baseUrl}/m3u`:
+        response = renderHtml(t2({ baseUrl, redirects }))
+        break
+        //response = new Response(null, { status: 204 })
+        //break
       case `${baseUrl}/delete`:
         const pathParam = url.searchParams.get('path')
         if (!pathParam) {
