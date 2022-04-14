@@ -1,7 +1,9 @@
 import auth from 'basic-auth'
 import CSV from 'papaparse'
 import template from './template'
-import t2 from './template-m3u'
+
+import tm3u from './template-m3u'
+import tjson from './template-json'
 
 declare global {
   const REDIRECTS: KVNamespace
@@ -159,10 +161,14 @@ export default async (event: FetchEvent, options = {}) => {
         response = renderHtml(template({ baseUrl, redirects }))
         break
       case `/json`:
-        response = renderHtml(t2({ baseUrl, redirects }))
+        response = renderHtml(tjson({ baseUrl, redirects }))
         break
-        //response = new Response(null, { status: 204 })
-        //break
+      case `/m3u`:
+        response = renderHtml(tm3u({ baseUrl, redirects }))
+        break
+      case `/msx`:
+        response = renderHtml(tjson({ baseUrl, redirects }))
+        break
       case `${baseUrl}/delete`:
         const pathParam = url.searchParams.get('path')
         if (!pathParam) {
