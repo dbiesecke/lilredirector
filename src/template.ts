@@ -187,7 +187,6 @@ export default ({
 
       const redirects = JSON.parse(document.querySelector("script#redirects_data").innerText)
 
-      exportButton.addEventListener("click", exportToCsv)
 
    
 
