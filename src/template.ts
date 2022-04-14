@@ -69,7 +69,6 @@ export default ({
                   + Create Redirect
                 </button>
               </span>
-
             </div>
           </div>
         </div>
