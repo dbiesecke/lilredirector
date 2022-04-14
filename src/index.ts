@@ -4,6 +4,7 @@ import template from './template'
 
 import tm3u from './template-m3u'
 import tjson from './template-json'
+import tmsx from './template-msx'
 
 declare global {
   const REDIRECTS: KVNamespace
@@ -172,7 +173,7 @@ export default async (event: FetchEvent, options = {}) => {
         response = renderHtml(tm3u({ baseUrl, redirects }))
         break
       case `/msx`:
-        response = renderHtml(tjson({ baseUrl, redirects }))
+        response = renderHtml(tmsx({ baseUrl, redirects }))
         break
       case `${baseUrl}/delete`:
         const pathParam = url.searchParams.get('path')
