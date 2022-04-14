@@ -105,12 +105,21 @@ const getRedirect = async (
 
 const renderHtml = (page: () => string) =>
   new Response(page(), {
-    headers: { 'Content-type': 'text/html' },
+    headers: {
+        "content-type": "text/html;charset=UTF-8",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+  
+      },
   })
 
 const renderJson = (page: () => string) =>
   new Response(page(), {
-    headers: { 'Content-type': 'application/json' },
+    headers: {
+        "content-type": "application/json;charset=UTF-8",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+      },
   })
 
 const removeTrailingSlashesFromUrl = (url: URL) => {
