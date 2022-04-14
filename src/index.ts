@@ -107,6 +107,11 @@ const renderHtml = (page: () => string) =>
     headers: { 'Content-type': 'text/html' },
   })
 
+const renderJson = (page: () => string) =>
+  new Response(page(), {
+    headers: { 'Content-type': 'application/json' },
+  })
+
 const removeTrailingSlashesFromUrl = (url: URL) => {
   if (url.pathname.endsWith('/')) url.pathname = url.pathname.slice(0, -1)
 }
@@ -161,7 +166,7 @@ export default async (event: FetchEvent, options = {}) => {
         response = renderHtml(template({ baseUrl, redirects }))
         break
       case `/json`:
-        response = renderHtml(tjson({ baseUrl, redirects }))
+        response = renderJson(tjson({ baseUrl, redirects }))
         break
       case `/m3u`:
         response = renderHtml(tm3u({ baseUrl, redirects }))
