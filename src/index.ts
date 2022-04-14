@@ -158,7 +158,7 @@ export default async (event: FetchEvent, options = {}) => {
       case `${baseUrl}`:
         response = renderHtml(template({ baseUrl, redirects }))
         break
-      case `${baseUrl}/m3u`:
+      case `json`:
         response = renderHtml(t2({ baseUrl, redirects }))
         break
         //response = new Response(null, { status: 204 })
