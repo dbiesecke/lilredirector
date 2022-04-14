@@ -268,7 +268,7 @@ export default async (event: FetchEvent, options = {}) => {
         break
     }
   } catch (err) {
-    error = new Response(err.toString())
+    //error = new Response(err.toString())
   }
 
   return { error, response }
