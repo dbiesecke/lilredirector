@@ -10,10 +10,8 @@ export default ({
 ${redirects
     .filter((redirect: Redirect) => !!redirect.path)
     .map(
-      (redirect: Redirect) => `
-#EXTINF:-1 tvg-chno="-1" tvg-id="" tvg-name="${redirect.path.slice(1)}" tvg-logo="" group-title="",${redirect.path.slice(1)}
-${redirect.redirect}
-              `,
+      (redirect: Redirect) => `#EXTINF:-1 tvg-chno="-1" tvg-id="" tvg-name="${redirect.path.slice(1)}" tvg-logo="" group-title="",${redirect.path.slice(1)}
+${redirect.redirect}`,
     )
     .join('\n')}
     `
