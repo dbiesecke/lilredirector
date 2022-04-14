@@ -6,16 +6,7 @@ export default ({
 }: {
   baseUrl: string
   redirects: Redirect[]
-}) => () => `{
-    "type": "list",
-    "headline": "Playlist",
-    "template": {
-      "type": "control",
-      "layout": "0,0,12,1",
-      "color": "msx-glass"
-    },
-    "items": [
-
+}) => () => `{ "type": "list",    "headline": "Playlist",    "template": {      "type": "control",      "layout": "0,0,12,1",      "color": "msx-glass"    },    "items": [
 ${redirects
       .filter((redirect: Redirect) => !!redirect.path)
       .map(
@@ -27,5 +18,5 @@ ${redirects
           }`,
       )
       .join(',').slice(0, -1)}
-
+        ] }
 `
