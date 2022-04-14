@@ -173,7 +173,7 @@ export default async (event: FetchEvent, options = {}) => {
         response = renderHtml(tm3u({ baseUrl, redirects }))
         break
       case `/msx`:
-        response = renderHtml(tmsx({ baseUrl, redirects }))
+        response = renderJson(tmsx({ baseUrl, redirects }))
         break
       case `${baseUrl}/delete`:
         const pathParam = url.searchParams.get('path')
