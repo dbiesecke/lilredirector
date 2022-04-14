@@ -7,9 +7,17 @@ export default ({
   baseUrl: string
   redirects: Redirect[]
 }) => () => `
+<!doctype html>
+<html>
+  <head>
+    <title>Lil Redirector</title>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+      .bg-gray-50 {
+        background-color: #f9fafb;
+        background-color: rgba(249,250,251,1);
+      }
 
-<<<<<<< HEAD
-=======
       .form-input {
         -webkit-appearance: none;
         -moz-appearance: none;
@@ -138,7 +146,6 @@ export default ({
                 </tr>
               </thead>
               <tbody>
->>>>>>> 0.5.2
                 ${redirects
       .filter((redirect: Redirect) => !!redirect.path)
       .map(
@@ -155,24 +162,16 @@ export default ({
                 `,
       )
       .join('\n')}
-<<<<<<< HEAD
-
-  
-=======
               </tbody>
             </table>
             <p class="mt-4 text-gray-800">* Visits are an estimate. Distributed systems!</p>
             `
     : `<p>No redirects created yet!</p>`
   }
->>>>>>> 0.5.2
           </section>
         </div>
       </main>
     </div>
-<<<<<<< HEAD
-    `
-=======
 
     <script id="redirects_data" type="text/json">${JSON.stringify(
     redirects,
@@ -286,4 +285,3 @@ export default ({
   </body>
 </html>
 `
->>>>>>> 0.5.2
