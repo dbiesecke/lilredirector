@@ -11,5 +11,4 @@ export default ({
       .map(
         (redirect: Redirect) => `{ "label": "${redirect.path.slice(1)}", "icon": "msx-yellow:folder","action": "content:${redirect.redirect}" }`,
       )
-      .join(',').slice(0, -1)}] }}
-`
+      .join(',').slice(0, -1)}] }`
