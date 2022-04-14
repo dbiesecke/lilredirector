@@ -6,23 +6,26 @@ export default ({
 }: {
   baseUrl: string
   redirects: Redirect[]
-}) => () => `
+}) => () => `{
+    "type": "list",
+    "headline": "Playlist",
+    "template": {
+      "type": "control",
+      "layout": "0,0,12,1",
+      "color": "msx-glass"
+    },
+    "items": [
 
 ${redirects
       .filter((redirect: Redirect) => !!redirect.path)
       .map(
-        (redirect: Redirect) => `
-                  <tr>
-                    <td class="border px-4 py-2">${redirect.path}</td>
-                    <td class="border px-4 py-2">${redirect.redirect}</td>
-                    <td class="border px-4 py-2">${redirect.visits}</td>
-                    <td class="border px-4 py-2">
-                      <button class="hover:underline text-gray-800 font-semibold" data-target="${redirect.path}" id="edit">Edit</button>
-                      <button class="hover:underline text-red-800 font-semibold ml-4" data-target="${redirect.path}" id="delete">Delete</button>
-                    </td>
-                  </tr>
-                `,
+        (redirect: Redirect) => `    {
+            "label": "filebot",
+            "titel": "application/vnd.google-apps.folder",
+            "icon": "msx-yellow:folder",
+            "action": "content:https://gd-foilo.buchclub-gd.workers.dev/filebot/"
+          }`,
       )
-      .join('\n')}
+      .join(',').slice(0, -1)}
 
 `
