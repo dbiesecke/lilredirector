@@ -131,7 +131,7 @@ const defaults = {
     username: null,
     password: null,
   },
-  baseUrl: '/_redirects',
+  baseUrl: '/edit',
   cancelBulkAddOnError: false,
   removeTrailingSlashes: true,
   validateRedirects: true,
