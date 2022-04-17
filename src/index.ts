@@ -134,7 +134,7 @@ const defaults = {
   baseUrl: '/edit',
   cancelBulkAddOnError: false,
   removeTrailingSlashes: true,
-  validateRedirects: true,
+  validateRedirects: false,
 }
 
 export default async (event: FetchEvent, options = {}) => {
