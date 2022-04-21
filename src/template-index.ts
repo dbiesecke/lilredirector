@@ -15,7 +15,7 @@ export default ({
  ${redirects
     .filter((redirect: Redirect) => !!redirect.path)
     .map(
-      (redirect: Redirect,myindex) => `<li> <a href="${redirect.path.slice(1)}">${redirect.path.slice(1)}/</a></li>`,
+      (redirect: Redirect,myindex) => `<li> <a href="${redirect.path.slice(1)}/">${redirect.path.slice(1)}/</a></li>`,
     )
     .join('\n')}
     
