@@ -72,13 +72,13 @@ export default ({
                 </button>
               </span>
               <span class="shadow-sm rounded-md">
-                <a href="${baseUrl}.msx" > <button id="add_redirect_button" type="button" class="inline-flex items-center px-4 py-2 border border-transparent leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline-indigo focus:border-indigo-700 active:bg-indigo-700 transition duration-150 ease-in-out">
+                <a href="${baseUrl}/msx" > <button id="add_redirect_button" type="button" class="inline-flex items-center px-4 py-2 border border-transparent leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline-indigo focus:border-indigo-700 active:bg-indigo-700 transition duration-150 ease-in-out">
                   + Export-MSX
                 </button>
                 </a>
               </span>
               <span class="shadow-sm rounded-md">
-                <a href="${baseUrl}.m3u" > <button id="add_redirect_button" type="button" class="inline-flex items-center px-4 py-2 border border-transparent leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline-indigo focus:border-indigo-700 active:bg-indigo-700 transition duration-150 ease-in-out">
+                <a href="${baseUrl}/m3u" > <button id="add_redirect_button" type="button" class="inline-flex items-center px-4 py-2 border border-transparent leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline-indigo focus:border-indigo-700 active:bg-indigo-700 transition duration-150 ease-in-out">
                   + Export-M3U
                 </button>
                 </a>
