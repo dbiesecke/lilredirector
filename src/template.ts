@@ -1,16 +1,18 @@
 import type { Redirect } from './types'
 
 export default ({
+  title,
   baseUrl,
   redirects,
 }: {
+  title: string
   baseUrl: string
   redirects: Redirect[]
 }) => () => `
 <!doctype html>
 <html>
   <head>
-    <title>Lil Redirector</title>
+    <title>${title}</title>
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <style>
       .bg-gray-50 {
@@ -60,7 +62,7 @@ export default ({
           <div class="mt-2 md:flex md:items-center md:justify-between">
             <div class="flex-1 min-w-0">
               <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:leading-9 sm:truncate">
-                Redirects (${redirects.length})
+                ${title} (${redirects.length})
               </h2>
             </div>
             <div class="mt-4 flex-shrink-0 flex md:mt-0 md:ml-4">
@@ -68,6 +70,12 @@ export default ({
                 <button id="add_redirect_button" type="button" class="inline-flex items-center px-4 py-2 border border-transparent leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline-indigo focus:border-indigo-700 active:bg-indigo-700 transition duration-150 ease-in-out">
                   + Create Redirect
                 </button>
+              </span>
+              <span class="shadow-sm rounded-md">
+                <a href="" > <button id="add_redirect_button" type="button" class="inline-flex items-center px-4 py-2 border border-transparent leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline-indigo focus:border-indigo-700 active:bg-indigo-700 transition duration-150 ease-in-out">
+                  + Export-MSX
+                </button>
+                </a>
               </span>
             </div>
           </div>

@@ -132,6 +132,7 @@ const defaults = {
     password: null,
   },
   baseUrl: '/edit',
+  title: 'mytitle',
   cancelBulkAddOnError: false,
   removeTrailingSlashes: true,
   validateRedirects: false,
@@ -140,7 +141,7 @@ const defaults = {
 export default async (event: FetchEvent, options = {}) => {
   const { request } = event
   const config = Object.assign(defaults, options)
-  const { basicAuthentication, baseUrl } = config
+  const { basicAuthentication, baseUrl , title} = config
   let error, response
   let url = new URL(event.request.url)
 
@@ -169,11 +170,10 @@ export default async (event: FetchEvent, options = {}) => {
     }
   }
   const redirects = await gatherRedirects()
-
   try {
     switch (url.pathname) {
       case `${baseUrl}`:
-        response = renderHtml(template({ baseUrl, redirects }))
+        response = renderHtml(template({ title , baseUrl, redirects }))
         break
       case `/json`:
         response = renderJson(tjson({ baseUrl, redirects }))
