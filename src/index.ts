@@ -179,7 +179,7 @@ export default async (event: FetchEvent, options = {}) => {
       case `${baseUrl}/json`:
         response = renderJson(tjson({ baseUrl, redirects }))
         break
-      case `${baseUrl}/index`:
+      case `/`:
         response = renderHtml(tindex({ baseUrl, redirects }))
         break
       case `${baseUrl}/m3u`:
