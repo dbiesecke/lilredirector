@@ -51,7 +51,7 @@ export default ({
     <ul class="flex items-center px-4 py-2">
       <div class="flex-1 flex items-center">
         <img class="w-16 h-16 mr-2" src="https://raw.githubusercontent.com/signalnerve/lilredirector/master/.github/logo.png" />
-        <h1 class="text-2xl font-bold">Lil Redirector</h1>
+        <h1 class="text-2xl font-bold">${title} ( Lil Redirector )</h1>
       </div>
       <span><code>v0.6.0</code></span>
     </ul>
@@ -72,8 +72,14 @@ export default ({
                 </button>
               </span>
               <span class="shadow-sm rounded-md">
-                <a href="" > <button id="add_redirect_button" type="button" class="inline-flex items-center px-4 py-2 border border-transparent leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline-indigo focus:border-indigo-700 active:bg-indigo-700 transition duration-150 ease-in-out">
+                <a href="${baseUrl}.msx" > <button id="add_redirect_button" type="button" class="inline-flex items-center px-4 py-2 border border-transparent leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline-indigo focus:border-indigo-700 active:bg-indigo-700 transition duration-150 ease-in-out">
                   + Export-MSX
+                </button>
+                </a>
+              </span>
+              <span class="shadow-sm rounded-md">
+                <a href="${baseUrl}.m3u" > <button id="add_redirect_button" type="button" class="inline-flex items-center px-4 py-2 border border-transparent leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline-indigo focus:border-indigo-700 active:bg-indigo-700 transition duration-150 ease-in-out">
+                  + Export-M3U
                 </button>
                 </a>
               </span>
