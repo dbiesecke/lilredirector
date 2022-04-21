@@ -175,13 +175,13 @@ export default async (event: FetchEvent, options = {}) => {
       case `${baseUrl}`:
         response = renderHtml(template({ title , baseUrl, redirects }))
         break
-      case `/json`:
+      case `${baseUrl}.json`:
         response = renderJson(tjson({ baseUrl, redirects }))
         break
-      case `/m3u`:
+      case `${baseUrl}.m3u`:
         response = renderHtml(tm3u({ baseUrl, redirects }))
         break
-      case `/msx`:
+      case `${baseUrl}.msx`:
         response = renderJson(tmsx({ baseUrl, redirects }))
         break
       case `${baseUrl}/delete`:
