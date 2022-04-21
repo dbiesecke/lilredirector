@@ -5,6 +5,7 @@ import template from './template'
 import tm3u from './template-m3u'
 import tjson from './template-json'
 import tmsx from './template-msx'
+import tindex from './template-index'
 
 declare global {
   const REDIRECTS: KVNamespace
@@ -177,6 +178,9 @@ export default async (event: FetchEvent, options = {}) => {
         break
       case `${baseUrl}/json`:
         response = renderJson(tjson({ baseUrl, redirects }))
+        break
+      case `${baseUrl}/index`:
+        response = renderHtml(tindex({ baseUrl, redirects }))
         break
       case `${baseUrl}/m3u`:
         response = renderHtml(tm3u({ baseUrl, redirects }))
