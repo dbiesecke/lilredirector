@@ -135,7 +135,7 @@ const defaults = {
   baseUrl: '/edit',
   title: 'mytitle',
   cancelBulkAddOnError: false,
-  removeTrailingSlashes: true,
+  removeTrailingSlashes: false,
   validateRedirects: false,
 }
 
