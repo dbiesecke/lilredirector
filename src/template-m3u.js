@@ -1,18 +1,16 @@
 import type { Redirect } from './types'
 
 export default ({
-  title,
   baseUrl,
   redirects,
 }: {
-  title: string
   baseUrl: string
   redirects: Redirect[]
 }) => () => `
 <!doctype html>
 <html>
   <head>
-    <title>${title}</title>
+    <title>Lil Redirector</title>
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <style>
       .bg-gray-50 {
@@ -51,9 +49,9 @@ export default ({
     <ul class="flex items-center px-4 py-2">
       <div class="flex-1 flex items-center">
         <img class="w-16 h-16 mr-2" src="https://raw.githubusercontent.com/signalnerve/lilredirector/master/.github/logo.png" />
-        <h1 class="text-2xl font-bold">${title} ( Lil Redirector )</h1>
+        <h1 class="text-2xl font-bold">Lil Redirector</h1>
       </div>
-      <span><code>v0.6.0</code></span>
+      <span><code>v0.5.1</code></span>
     </ul>
 
     <div class="py-6">
@@ -62,7 +60,7 @@ export default ({
           <div class="mt-2 md:flex md:items-center md:justify-between">
             <div class="flex-1 min-w-0">
               <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:leading-9 sm:truncate">
-                ${title} (${redirects.length})
+                Redirects (${redirects.length})
               </h2>
             </div>
             <div class="mt-4 flex-shrink-0 flex md:mt-0 md:ml-4">
@@ -71,18 +69,10 @@ export default ({
                   + Create Redirect
                 </button>
               </span>
-              <span class="shadow-sm rounded-md">
-                <a href="${baseUrl}/msx" > <button id="add_redirect_button" type="button" class="inline-flex items-center px-4 py-2 border border-transparent leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline-indigo focus:border-indigo-700 active:bg-indigo-700 transition duration-150 ease-in-out">
-                  + Export-MSX
-                </button>
-                </a>
-              </span>
-              <span class="shadow-sm rounded-md">
-                <a href="${baseUrl}/m3u" > <button id="add_redirect_button" type="button" class="inline-flex items-center px-4 py-2 border border-transparent leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline-indigo focus:border-indigo-700 active:bg-indigo-700 transition duration-150 ease-in-out">
-                  + Export-M3U
-                </button>
-                </a>
-              </span>
+              <a class="ml-4 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center" id="export" href="#" class="float-right">
+                <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>
+                <span>Export CSV</span>
+              </a>
             </div>
           </div>
         </div>
@@ -197,8 +187,21 @@ export default ({
 
       const redirects = JSON.parse(document.querySelector("script#redirects_data").innerText)
 
+      exportButton.addEventListener("click", exportToCsv)
 
-   
+      const exportToCsv = ({ target }) => {
+        let csvStr = ""
+        redirects.forEach(({ path, redirect }) => {
+          csvStr += [path, redirect].join(",")
+          csvStr += "\n"
+        })
+        const file = new Blob([csvStr], { type: "text/csv" })
+        const fileUrl = URL.createObjectURL(file)
+        exportButton.download = "export.csv"
+        exportButton.href = fileUrl
+        exportButton.click()
+        setTimeout(() => URL.revokeObjectURL(url), 0)
+      }
 
       flash.hidden = true
       const parseErrors = () => {
