@@ -19,7 +19,7 @@ export default ({
  ${redirects
     .filter((redirect: Redirect) => !!redirect.path)
     .map(
-      (redirect: Redirect,myindex) => `<tr><td class="n"> <a href="${redirect.path.slice(1)}">${redirect.path.slice(1)}</a>/</td><td class="m">2019-Jan-18 07:59:36</td><td class="s">- &nbsp;</td><td class="t">Directory</td></tr>`,
+      (redirect: Redirect,myindex) => `<tr><td class="n"> <a href="${redirect.path.slice(1)}">`+ encodeURIComponent(redirect.path.slice(1)) + `</a>/</td><td class="m">2019-Jan-18 07:59:36</td><td class="s">- &nbsp;</td><td class="t">Directory</td></tr>`,
     )
     .join('\n')}
     </tbody>
