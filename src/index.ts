@@ -88,7 +88,9 @@ const getRedirect = async (
   if (!kvData) return null
   const result = JSON.parse(kvData)
   if (result) {
-    /*
+    
+/* Removed because of KV limit
+
     event.waitUntil(
       REDIRECTS.put(
         key,
@@ -99,7 +101,9 @@ const getRedirect = async (
         ),
       ),
     )
-    */
+    
+ */
+    
     const redirect = result.redirect
     return redirectToUrl(redirect, url)
   }
